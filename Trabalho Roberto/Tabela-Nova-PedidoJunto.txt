@@ -1,0 +1,65 @@
+CREATE DATABASE university
+______________________________________
+
+CREATE TABLE usuario(
+id SERIAL NOT NULL PRIMARY KEY,
+senha VARCHAR(30) NOT NULL,
+perfil INTEGER NOT NULL,
+cpf_vend VARCHAR(15) NOT NULL)
+
+CREATE TABLE vendedor(
+cpf VARCHAR(15) NOT NULL PRIMARY KEY,
+nome VARCHAR(20) NOT NULL,
+email VARCHAR(20) NOT NULL)
+
+CREATE TABLE cliente(
+cnpj VARCHAR(20) NOT NULL PRIMARY KEY,
+razaoSocial VARCHAR(30) NOT NULL,
+cpf_vend VARCHAR(15) NOT NULL)
+
+CREATE TABLE produto(
+codigo INTEGER NOT NULL PRIMARY KEY,
+descricao VARCHAR(20) NOT NULL,
+quantidade INTEGER NOT NULL)
+
+CREATE TABLE pedido(
+numero SERIAL NOT NULL PRIMARY KEY,
+produto VARCHAR(20) NOT NULL,
+codigo_prod INTEGER NOT NULL,
+quantidade INTEGER NOT NULL,
+status VARCHAR(10) NOT NULL,
+dataDoPedido DATE NOT NULL,
+dataDaPrevisao DATE NOT NULL,
+dataDaEntrega DATE NULL,
+cnpj_cli VARCHAR(20) NOT NULL)
+
+ALTER TABLE usuario
+ADD CONSTRAINT vendedor_fk
+FOREIGN KEY (cpf_vend)
+REFERENCES vendedor (cpf)
+
+ALTER TABLE cliente
+ADD CONSTRAINT vendedor_fk
+FOREIGN KEY (cpf_vend)
+REFERENCES vendedor (cpf)
+
+ALTER TABLE pedido
+ADD CONSTRAINT cliente_fk
+FOREIGN KEY (cnpj_cli)
+REFERENCES cliente (cnpj)
+
+ALTER TABLE pedido
+ADD CONSTRAINT produto_fk
+FOREIGN KEY (codigo_prod)
+REFERENCES produto (codigo)
+
+______________________________________________________________________
+inserts para fazer login:
+
+INSERT INTO vendedor (cpf, nome, email) VALUES ('123456789-10', 'Evandro', 'evandro@gmail.com')
+
+INSERT INTO usuario (senha, perfil, cpf_vend) VALUES ('1234567', 1, '123456789-10')
+
+
+
+
