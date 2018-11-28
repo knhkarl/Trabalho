@@ -1,6 +1,7 @@
 package br.edu.univas.controller;
 
 import java.awt.Component;
+import java.sql.SQLException;
 
 import javax.swing.SwingUtilities;
 
@@ -10,14 +11,22 @@ import br.edu.univas.view.MainView;
 public class MainController {
 	
 	private MainView mainView;
+	private AddCadastraProdutoController addCadastraProdutoController;
+	private AddCadastraVendedorController addCadastraVendedorController;
+	private AddCadastraClienteController addCadastraClienteController;
 	private AddRealizaPedidoController addRealizaPedidoController;
 	private AddConsultaProdutoController addConsultaProdutoController;
 	private AddConsultaPedidoClienteController addConsultaPedidoClienteController;
 	private AddGerarRelatorioController addGerarRelatorioController;
 	private AddConsultaPedidoEfetuadoController addConsultaPedidoEfetuadoController;
 	
-	public MainController(){
-		mainView = new MainView();
+	public MainController(int perfil) throws SQLException{
+//		LoginController login = new LoginController();
+//		login.setPerfil(perfil);
+		mainView = new MainView(perfil);
+		addCadastraProdutoController = new AddCadastraProdutoController();
+		addCadastraVendedorController = new AddCadastraVendedorController();
+		addCadastraClienteController = new AddCadastraClienteController();
 		addRealizaPedidoController = new AddRealizaPedidoController();
 		addConsultaProdutoController = new AddConsultaProdutoController();
 		addConsultaPedidoClienteController = new AddConsultaPedidoClienteController();
@@ -29,36 +38,59 @@ public class MainController {
 		mainView.setListener(new TopButtonListener() {
 			
 			@Override
+			public void showCadastraProd() {
+				showCadastraProdPanel();
+			}
+			
+			@Override
+			public void showCadastraVendedor() {
+				showCadastraVendedorPanel();
+			}
+			
+			@Override
+			public void showCadastraCliente() {
+				showCadastraClientePanel();
+			}
+			
+			@Override
 			public void showRealiza() {
-				showRealizaPanel();
-				
+				showRealizaPanel();	
 			}
 			
 			@Override
 			public void showGerarRelatorio() {
 				showGerarRelatorioPanel();
-				
 			}
 			
 			@Override
 			public void showConsultarPedidosEfetuados() {
 				showConsultarPedidosEfetuadosPanel();
-				
 			}
 			
 			@Override
 			public void showConsultarPedidosCliente() {
 				showConsultaPedidosClientePanel();
-				
 			}
 			
 			@Override
 			public void showConsultarDisponibilidade() {
 				showConsultaDisponilibilidadePanel();
-				
 			}
+
 		});
 		mainView.setVisible(true);
+	}
+	
+	private void showCadastraProdPanel(){
+		showPanel(addCadastraProdutoController.getComponent());
+	}
+	
+	private void showCadastraVendedorPanel(){
+		showPanel(addCadastraVendedorController.getComponent());
+	}
+	
+	private void showCadastraClientePanel(){
+		showPanel(addCadastraClienteController.getComponent());
 	}
 	
 	private void showRealizaPanel(){

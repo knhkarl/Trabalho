@@ -4,6 +4,7 @@ public class Produto {
 	
 	private int codigo;
 	private String descricao;
+	private int quantidade;
 	
 	public int getCodigo() {
 		return codigo;
@@ -17,7 +18,11 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 
 }

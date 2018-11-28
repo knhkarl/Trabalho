@@ -19,6 +19,9 @@ public class AddRealizaPedidoPanel extends JPanel{
 	private JTextField nomeProdutoTextField;
 	private JTextField qtdProdutoTextField;
 	private JTextField cnpjClienteTextField;
+	private JTextField codigoTextField;
+	private JTextField dataTextField;
+	private JTextField dataPrevisaoTextField;
 	
 	public AddRealizaPedidoPanel(){
 		addComponents();
@@ -33,24 +36,39 @@ public class AddRealizaPedidoPanel extends JPanel{
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		JLabel nomeProdutoLabel = new JLabel();
-		nomeProdutoLabel.setText("Nome do Produto: ");
+//		JLabel nomeProdutoLabel = new JLabel();
+//		nomeProdutoLabel.setText("Nome do Produto: ");
+//		gbc.gridx = 0;
+//		gbc.gridy = 0;
+//		gbc.anchor = GridBagConstraints.LINE_START;
+//		gbc.insets = new Insets(10,10,10,10);
+//		this.add(nomeProdutoLabel, gbc);
+//		
+//		nomeProdutoTextField = new JTextField();
+//		gbc.gridx = 1;
+//		gbc.weightx = 1.0;
+//		gbc.fill = GridBagConstraints.HORIZONTAL;
+//		this.add(nomeProdutoTextField, gbc);
+		
+		JLabel codigoProdutoLabel = new JLabel();
+		codigoProdutoLabel.setText("Codigo do Produto: ");
 		gbc.gridx = 0;
-		gbc.gridy = 0;
+		gbc.gridy = 1;
 		gbc.anchor = GridBagConstraints.LINE_START;
 		gbc.insets = new Insets(10,10,10,10);
-		this.add(nomeProdutoLabel, gbc);
+		gbc.weightx = 0.0;
+		this.add(codigoProdutoLabel, gbc);
 		
-		nomeProdutoTextField = new JTextField();
+		codigoTextField = new JTextField();
 		gbc.gridx = 1;
 		gbc.weightx = 1.0;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		this.add(nomeProdutoTextField, gbc);
+		this.add(codigoTextField, gbc);
 		
 		JLabel qtdProdutoLabel = new JLabel();
 		qtdProdutoLabel.setText("Quantidade: ");
 		gbc.gridx = 0;
-		gbc.gridy = 1;
+		gbc.gridy = 2;
 		gbc.weightx = 0.0;
 		this.add(qtdProdutoLabel, gbc);
 		
@@ -62,7 +80,7 @@ public class AddRealizaPedidoPanel extends JPanel{
 		JLabel cnpjClienteLabel = new JLabel();
 		cnpjClienteLabel.setText("CNPJ do Cliente: ");
 		gbc.gridx = 0;
-		gbc.gridy = 2;
+		gbc.gridy = 3;
 		gbc.weightx = 0.0;
 		this.add(cnpjClienteLabel, gbc);
 		
@@ -70,6 +88,30 @@ public class AddRealizaPedidoPanel extends JPanel{
 		gbc.gridx = 1;
 		gbc.weightx = 1.0;
 		this.add(cnpjClienteTextField, gbc);
+		
+		JLabel dataPedidoLabel = new JLabel();
+		dataPedidoLabel.setText("Data do Pedido: ");
+		gbc.gridx = 0;
+		gbc.gridy = 4;
+		gbc.weightx = 0.0;
+		this.add(dataPedidoLabel, gbc);
+		
+		dataTextField = new JTextField();
+		gbc.gridx = 1;
+		gbc.weightx = 1.0;
+		this.add(dataTextField, gbc);
+		
+		JLabel dataPrevisaoLabel = new JLabel();
+		dataPrevisaoLabel.setText("Previsao de Entrega: ");
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.weightx = 0.0;
+		this.add(dataPrevisaoLabel, gbc);
+		
+		dataPrevisaoTextField = new JTextField();
+		gbc.gridx = 1;
+		gbc.weightx = 1.0;
+		this.add(dataPrevisaoTextField, gbc);
 		
 		JButton saveButton = new JButton();
 		saveButton.setText("Salvar");
@@ -81,7 +123,7 @@ public class AddRealizaPedidoPanel extends JPanel{
 			}
 		});
 		gbc.gridx = 0;
-		gbc.gridy = 3;
+		gbc.gridy = 6;
 		gbc.gridwidth = 2;
 		gbc.weightx = 0.0;
 		gbc.anchor = GridBagConstraints.CENTER;
@@ -94,16 +136,24 @@ public class AddRealizaPedidoPanel extends JPanel{
 		return nomeProdutoTextField;
 	}
 
-
-
 	public JTextField getQtdProdutoTextField() {
 		return qtdProdutoTextField;
 	}
 
-
-
 	public JTextField getCnpjClienteTextField() {
 		return cnpjClienteTextField;
+	}
+
+	public JTextField getCodigoTextField() {
+		return codigoTextField;
+	}
+
+	public JTextField getDataTextField() {
+		return dataTextField;
+	}
+
+	public JTextField getDataPrevisaoTextField() {
+		return dataPrevisaoTextField;
 	}
 
 }

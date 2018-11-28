@@ -1,7 +1,7 @@
 package br.edu.univas.listener;
 
-public interface PesquisaGerarRelatorio {
+public interface PesquisaPedidosEmAberto {
 	
 	void pesquisa();
-	
+
 }

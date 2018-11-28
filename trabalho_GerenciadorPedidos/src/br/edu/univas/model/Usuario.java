@@ -26,8 +26,8 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 	
-	public int getCpfVendedor(){
-		int cpf = this.vendedor.getCpf();
+	public String getCpfVendedor(){
+		String cpf = this.vendedor.getCpf();
 		return cpf;
 	}
 

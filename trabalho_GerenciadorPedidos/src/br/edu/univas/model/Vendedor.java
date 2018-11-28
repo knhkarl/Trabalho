@@ -2,14 +2,14 @@ package br.edu.univas.model;
 
 public class Vendedor {
 	
-	private int cpf;
+	private String cpf;
 	private String nome;
 	private String email;
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getNome() {

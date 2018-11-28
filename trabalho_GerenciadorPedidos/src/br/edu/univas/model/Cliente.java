@@ -4,7 +4,7 @@ public class Cliente {
 	
 	private String cnpj;
 	private String razaoSocial;
-	private Vendedor vendedor;
+	private String cpf_vend;
 	
 	public String getCnpj() {
 		return cnpj;
@@ -18,9 +18,12 @@ public class Cliente {
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
-	public int getCpfVendedor(){
-		int cpf = this.vendedor.getCpf();
-		return cpf;
+	public String getCpf_vend() {
+		return cpf_vend;
 	}
+	public void setCpf_vend(String cpf_vend) {
+		this.cpf_vend = cpf_vend;
+	}
+	
 
 }

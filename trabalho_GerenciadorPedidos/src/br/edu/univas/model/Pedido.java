@@ -1,15 +1,18 @@
 package br.edu.univas.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Pedido {
 	
 	private int numero;
-	private Date prazo;
+	private String produto;
+	private int codigo;
+	private int quantidade;
+	private String status;
 	private Date dataDoPedido;
-	private int status;
-	private Vendedor vendedor;
-	private Cliente cliente;
+	private Date dataDaPrevisao;
+	private Date dataDaEntrega;
+	private String cliente;
 	
 	public int getNumero() {
 		return numero;
@@ -17,11 +20,29 @@ public class Pedido {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public Date getPrazo() {
-		return prazo;
+	public String getProduto() {
+		return produto;
 	}
-	public void setPrazo(Date prazo) {
-		this.prazo = prazo;
+	public void setProduto(String produto) {
+		this.produto = produto;
+	}
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public Date getDataDoPedido() {
 		return dataDoPedido;
@@ -29,21 +50,25 @@ public class Pedido {
 	public void setDataDoPedido(Date dataDoPedido) {
 		this.dataDoPedido = dataDoPedido;
 	}
-	public int getStatus() {
-		return status;
+	public Date getDataDaPrevisao() {
+		return dataDaPrevisao;
 	}
-	public void setStatus(int status) {
-		this.status = status;
+	public void setDataDaPrevisao(Date dataDaPrevisao) {
+		this.dataDaPrevisao = dataDaPrevisao;
+	}
+	public Date getDataDaEntrega() {
+		return dataDaEntrega;
+	}
+	public void setDataDaEntrega(Date dataDaEntrega) {
+		this.dataDaEntrega = dataDaEntrega;
+	}
+	public String getCliente() {
+		return cliente;
+	}
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
 	}
 	
-	public int getCpfVendedor(){
-		int cpf = this.vendedor.getCpf();
-		return cpf;
-	}
-	
-	public String getCnpjCliente(){
-		String cnpj = this.cliente.getCnpj();
-		return cnpj;
-	}
-
 }
+
+
